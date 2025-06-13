@@ -64,6 +64,7 @@ const HANGMAN_PICS: [&str; 7] = [
 ========="#,
 ];
 
+// loads a list of words from the specified text file and returns them as a Vec<String>
 fn load_words(filename: &str) -> Vec<String> {
     let path = Path::new(filename);
     let file = fs::File::open(&path).expect("Could not open word list file.");
@@ -75,6 +76,7 @@ fn load_words(filename: &str) -> Vec<String> {
         .collect()
 }
 
+// main program loop that displays main menu and handles menu selection
 fn main() {
     loop {
         println!("=== Hangman ===");
@@ -99,6 +101,7 @@ fn main() {
     }
 }
 
+// displays difficulty selection menu, loads word list, starts game
 fn play_hangman() {
     println!("Choose difficulty:");
     println!("1. Easy");
@@ -128,6 +131,7 @@ fn play_hangman() {
     play_game(word);
 }
 
+// runs the main hangman game loop. tracks guesses, displays word progress and hangman figure, checks win/loss
 fn play_game(word: &str) {
     let mut attempts_remaining = 6;
     let mut guessed_letters: Vec<char> = Vec::new();
