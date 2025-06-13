@@ -103,6 +103,7 @@ fn main() {
 
 // displays difficulty selection menu, loads word list, starts game
 fn play_hangman() {
+    println!();
     println!("Choose difficulty:");
     println!("1. Easy");
     println!("2. Medium");
@@ -128,6 +129,8 @@ fn play_hangman() {
     let mut rng = thread_rng();
     let word = word_list.choose(&mut rng).unwrap();
 
+    println!();
+
     play_game(word);
 }
 
@@ -137,6 +140,7 @@ fn play_game(word: &str) {
     let mut guessed_letters: Vec<char> = Vec::new();
 
     println!("The word has {} letters.", word.len());
+    println!();
 
     loop {
         // display current word progress
@@ -146,6 +150,7 @@ fn play_game(word: &str) {
         for c in word.chars() {
             if guessed_letters.contains(&c) {
                 display_word.push(c);
+                display_word.push(' ');
             } else {
                 display_word.push('_');
                 display_word.push(' ');
@@ -160,6 +165,14 @@ fn play_game(word: &str) {
         let stage = 6 - attempts_remaining;
         println!("{}", HANGMAN_PICS[stage]);
 
+        // display guessed letters
+        let guessed_display: String = guessed_letters
+            .iter()
+            .map(|c| c.to_string())
+            .collect::<Vec<String>>()
+            .join(", ");
+        println!("Guessed letters: {}", guessed_display);
+
         // check for win
         if all_guessed {
             println!("🎉 You won! The word was '{}'.", word);
@@ -171,6 +184,8 @@ fn play_game(word: &str) {
             println!("💀 You lost! The word was '{}'.", word);
             break;
         }
+
+        println!();
 
         // prompt for guess
         print!("Enter a letter: ");
