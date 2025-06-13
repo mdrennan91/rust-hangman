@@ -22,8 +22,8 @@ I chose this project to push myself outside of the languages I'm more familiar w
 
 # Future Work
 
-{Make a list of things that you need to fix, improve, and add in the future.}
-
-- Item 1
-- Item 2
-- Item 3
+- Display the list of guessed letters so far during the game
+- Implement different numbers of lives based on difficulty level
+- Add support for multi-word phrases with spaces
+- Load word lists from a JSON file instead of plain text
+- Improve input validation to prevent invalid or repeated inputs
