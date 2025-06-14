@@ -4,7 +4,7 @@ This project is a simple command-line Hangman game built in Rust. The purpose of
 
 I chose this project to push myself outside of the languages I'm more familiar with, and to get hands-on experience with a systems-level language known for its memory safety and performance.
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Demo Video](https://youtu.be/JNIWbxJFs4M)
 
 # Development Environment
 
@@ -22,7 +22,6 @@ I chose this project to push myself outside of the languages I'm more familiar w
 
 # Future Work
 
-- Display the list of guessed letters so far during the game
 - Implement different numbers of lives based on difficulty level
 - Add support for multi-word phrases with spaces
 - Load word lists from a JSON file instead of plain text
